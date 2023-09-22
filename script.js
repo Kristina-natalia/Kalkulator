@@ -40,6 +40,10 @@ document.addEventListener("DOMContentLoaded", function () {
             volume = calculateVolumeCylinder(value1, value2);
         } else if (selectedShape === "cone") {
             volume = calculateVolumeCone(value1, value2);
+        } else if (selectedShape === "triangle") {
+            // Segitiga memiliki 3 input: alas, tinggi, dan faktor pembagi
+            const faktorPembagi = value3 !== 0 ? value3 : 1;
+            volume = calculateVolumeTriangle(value1, value2, faktorPembagi);
         }
 
         if (!isNaN(volume)) {
@@ -75,12 +79,25 @@ document.addEventListener("DOMContentLoaded", function () {
                 inputLabel3.classList.add("hidden");
                 input2.classList.add("hidden");
                 input3.classList.add("hidden");
-            } else if (selectedShape === "cylinder" || selectedShape === "cone") {
+            } else if (selectedShape === "cylinder") {
                 inputLabel1.textContent = "Jari-Jari:";
                 inputLabel2.textContent = "Tinggi:";
                 inputLabel3.classList.add("hidden");
                 input2.classList.remove("hidden");
                 input3.classList.add("hidden");
+            } else if (selectedShape === "cone") {
+                inputLabel1.textContent = "Jari-Jari Dasar:";
+                inputLabel2.textContent = "Tinggi:";
+                inputLabel3.classList.add("hidden");
+                input2.classList.remove("hidden");
+                input3.classList.add("hidden");
+            } else if (selectedShape === "triangle") {
+                inputLabel1.textContent = "Alas:";
+                inputLabel2.textContent = "Tinggi:";
+                inputLabel3.textContent = "Faktor Pembagi:";
+                inputLabel3.classList.remove("hidden");
+                input2.classList.remove("hidden");
+                input3.classList.remove("hidden");
             }
         }
     });
@@ -119,7 +136,11 @@ document.addEventListener("DOMContentLoaded", function () {
         return Math.PI * jariJari ** 2 * tinggi;
     }
 
-    function calculateVolumeCone(jariJari, tinggi) {
-        return (1 / 3) * Math.PI * jariJari ** 2 * tinggi;
+    function calculateVolumeCone(jariJariDasar, tinggi) {
+        return (1 / 3) * Math.PI * jariJariDasar ** 2 * tinggi;
+    }
+
+    function calculateVolumeTriangle(alas, tinggi, faktorPembagi) {
+        return (1 / faktorPembagi) * (0.5 * alas * tinggi);
     }
 });
