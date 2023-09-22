@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Kalkulator Matematika</title>
+</head>
+<body>
+    <header>
+        <h1>Kalkulator Matematika</h1>
+        <div class="biodata">
+            <p>Nama: Kristina Natalia</p>
+            <p>NIM: 2215101003</p>
+            <p>Kelas: A</p>
+        </div>
+    </header>
+    <main>
+        <section>
+            <h2>Deret Fibonacci</h2>
+            <label for="fibonacciInput">Masukkan n:</label>
+            <input type="number" id="fibonacciInput" placeholder="Masukkan n">
+            <button id="calculateFibonacci" class="green-button">Hitung</button>
+            <p id="fibonacciResult"></p>
+        </section>
+
+        <section>
+            <h2>Volume Bangun Ruang</h2>
+            <form id="volumeForm">
+                <label for="shapeSelect">Pilih Bentuk:</label>
+                <select id="shapeSelect">
+                    <option value="none">Pilih Bentuk</option>
+                    <option value="cube">Kubus</option>
+                    <option value="rectangularPrism">Balok</option>
+                    <option value="sphere">Bola</option>
+                    <option value="cylinder">Tabung</option>
+                    <option value="cone">Kerucut</option>
+                </select>
+                <div id="shapeInputs" class="hidden">
+                    <label id="inputLabel1" for="input1"></label>
+                    <input type="number" id="input1" placeholder="">
+                    <label id="inputLabel2" class="hidden" for="input2"></label>
+                    <input type="number" id="input2" class="hidden" placeholder="">
+                    <label id="inputLabel3" class="hidden" for="input3"></label>
+                    <input type="number" id="input3" class="hidden" placeholder="">
+                    <button type="button" id="calculateVolume" class="green-button">Hitung</button>
+                </div>
+                <p id="volumeResult"></p>
+            </form>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
